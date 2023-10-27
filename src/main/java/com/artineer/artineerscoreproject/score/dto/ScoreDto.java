@@ -1,14 +1,9 @@
 package com.artineer.artineerscoreproject.score.dto;
 
 import com.artineer.artineerscoreproject.score.ValidScore;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import java.lang.annotation.Annotation;
 
 @Data
 public class ScoreDto {

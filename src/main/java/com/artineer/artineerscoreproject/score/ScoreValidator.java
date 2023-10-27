@@ -1,12 +1,7 @@
 package com.artineer.artineerscoreproject.score;
 
-import com.artineer.artineerscoreproject.score.dto.ScoreDto;
-import com.artineer.artineerscoreproject.score.repository.ScoreRepository;
-import lombok.RequiredArgsConstructor;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
 import java.util.Arrays;
 import java.util.List;
 
