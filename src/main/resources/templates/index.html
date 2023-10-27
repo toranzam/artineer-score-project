@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- BootStrap CSS & JS -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+
+<header class="container text-center mt-3">
+    <div>
+        <p>
+            이렇게 하시면 됩니다.
+        </p>
+    </div>
+
+</header>
+
+<section class="container-md mt-5 ">
+    <form class="d-flex justify-content-around" method="post" action="/" th:object="${scoreDto}" >
+        <div>
+            <label>이름: </label>
+            <input type="text" placeholder="이름" th:field="*{name}">
+        </div>
+
+        <div>
+            <label>FLAG: </label>
+            <input type="text" placeholder="FLAG값" th:field="*{flag}">
+        </div>
+
+        <button class="btn btn-primary">제출</button>
+    </form>
+    <div class="text-center mt-5">
+        <small  class="alert alert-danger" th:errors="${scoreDto.name}">정확한 이름을 입력해주세요</small>
+    </div>
+    <div class="text-center mt-5">
+        <small  class="alert alert-danger" th:errors="${scoreDto.flag}">FLAG값이 일치하지않습니다.</small>
+    </div>
+
+</section>
+
+<section class="container mt-5">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">초급1</th>
+            <th scope="col">초급2</th>
+            <th scope="col">초급3</th>
+            <th scope="col">초급4</th>
+            <th scope="col">중급1</th>
+            <th scope="col">중급2</th>
+            <th scope="col">중급3</th>
+            <th scope="col">중급4</th>
+            <th scope="col">고급1</th>
+            <th scope="col">고급2</th>
+            <th scope="col">고급3</th>
+            <th scope="col">고급4</th>
+            <th scope="col">총점</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="score : ${scoreList}">
+                <td th:text="${score.name}"></td>
+                <td th:text="${score.easy1}">1</td>
+                <td th:text="${score.easy2}">2</td>
+                <td th:text="${score.easy3}">3</td>
+                <td th:text="${score.easy4}">4</td>
+                <td th:text="${score.middle1}">1</td>
+                <td th:text="${score.middle2}">2</td>
+                <td th:text="${score.middle3}">3</td>
+                <td th:text="${score.middle4}">4</td>
+                <td th:text="${score.high1}">1</td>
+                <td th:text="${score.high2}">2</td>
+                <td th:text="${score.high3}">3</td>
+                <td th:text="${score.high4}">4</td>
+
+                <td th:text="${score.easy1 + score.easy2 + score.easy3 + score.easy4 +
+                score.middle1 + score.middle2 + score.middle3 + score.middle4 +
+                score.high1 + score.high2 + score.high3 + score.high4}">score</td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+
+
+
+</body>
+</html>
